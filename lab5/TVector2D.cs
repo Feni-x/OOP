@@ -35,23 +35,23 @@ using System.Threading.Tasks;
 
     public virtual void print()
     {
-        Console.WriteLine(x + "; " + y + " ");
+        Console.Write(x + "; " + y + " ");
     }
 
-    public double lenght()
+    public virtual double length()
     {
         return (Math.Sqrt(x * x + y * y));
     }
 
     public virtual void normalize()
     {
-        double lenght = this.lenght();
-        x = x / lenght;
-        y = y / lenght;
+        double length = this.length();
+        x = x / length;
+        y = y / length;
 
     }
     //ToDo чи треба додавати протилежність?
-    public virtual bool equals(TVector2D vector) 
+    public bool equals(TVector2D vector) 
     {
         return x == vector.x && y == vector.y;
     }

@@ -35,13 +35,14 @@ class TVector3D : TVector2D
 
     public override void print()
     {
-        base.input();
-        Console.Write(";" + z + " )");
+        base.print();
+        Console.Write(";" + z + "\n");
     }
 
-    public double length()
+    public override double length()
     {
-        return Math.Sqrt(base.lenght() * base.lenght() + z * z);
+        
+        return Math.Sqrt(base.length() * base.length() + z * z);
     }
     public override void normalize()
     {
@@ -49,7 +50,7 @@ class TVector3D : TVector2D
         base.normalize();
         z = z / length;
     }
-    public bool equals (TVector3D vector)
+    public bool equals(TVector3D vector)
     {
         return x==vector.x && y==vector.y && z==vector.z;   
     }
