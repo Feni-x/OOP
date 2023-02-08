@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Transactions;
 
-class TVector3D : TVector2D
+public class TVector3D : TVector2D
 {
     private double z;
 
@@ -14,7 +14,7 @@ class TVector3D : TVector2D
     {
         this.z = z;
     }
-    public TVector3D() : base(0, 0)
+    public TVector3D() : base()
     {
         this.z = 0;
     }
@@ -30,7 +30,7 @@ class TVector3D : TVector2D
     {
         base.input();
         Console.WriteLine("Please, enter z");
-        z = Int32.Parse(Console.ReadLine());
+        z = Double.Parse(Console.ReadLine());
     }
 
     public override void print()
@@ -42,7 +42,7 @@ class TVector3D : TVector2D
     public override double length()
     {
         
-        return Math.Sqrt(base.length() * base.length() + z * z);
+        return Math.Sqrt(x * x +y * y  + z * z);
     }
     public override void normalize()
     {

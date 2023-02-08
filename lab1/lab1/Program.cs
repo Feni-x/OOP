@@ -1,9 +1,10 @@
 ﻿
-class Program
+public class Program
 {
     public static void printMenu()
     {
-        Console.WriteLine("\nPlease, choose action\n0. Exit\n1. Empty constuctor\n2. Constructor with parameters\n3. Copy constuctor"+ 
+        Console.WriteLine("\nPlease, choose action\n0. Exit\n1. Empty constuctor" +
+            "\n2. Constructor with parameters\n3. Copy constuctor"+ 
             "\n4. Input object\n5. Print object\n6.Print coppied object\n7. Length\n8.Normalize\n9.Compare to coppied" +
             "\n10. Addition\n11. Subtraction\n12. Multiplication");
     }
@@ -101,9 +102,10 @@ class Program
                             break;
                         case 2:
                             Console.WriteLine("Please enter x, y and z");
-                            v31 = new TVector3D(int.Parse(Console.ReadLine()), int.Parse(Console.ReadLine()), int.Parse(Console.ReadLine()));
+                            v31 = new TVector3D(int.Parse(Console.ReadLine()),
+                                int.Parse(Console.ReadLine()), int.Parse(Console.ReadLine()));
                             Console.WriteLine("First vector");
-                            v21.print();
+                            v31.print();
                             break;
                         case 3:
                             Console.WriteLine("Coppied vector");

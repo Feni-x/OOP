@@ -3,141 +3,138 @@
 using namespace std;
 class TVector2D
 {
-protected:
-    double x;
-    double y;
+    protected:
+        double x;
+        double y;
 
-public:
-    TVector2D(double x, double y)
-    {
-        this->x = x;
-        this->y = y;
-    }
-    TVector2D()
-    {
-        x = 0;
-        y = 0;
-    }
+    public:
+            TVector2D(double x, double y)
+            {
+            this->x = x;
+            this->y = y;
+            }
+            TVector2D()
+            {
+                x = 0;
+                y = 0;
+            }
 
-    TVector2D(const TVector2D& vector)
-    {
-        x = vector.x;
-        y = vector.y;
-    }
+            TVector2D(const TVector2D& vector)
+            {
+                x = vector.x;
+                y = vector.y;
+            }
 
-    virtual void input()
-    {
-        cout << "Please, enter x" << endl;
-        cin >> x;
-        cout << "Please, enter y" << endl;
-        cin >> y;
-    }
+            virtual void input()
+            {
+                cout << "Please, enter x" << endl;
+                cin >> x;
+                cout << "Please, enter y" << endl;
+                cin >> y;
+            }
 
-    void virtual print() 
-    {
-        cout << x << "; " << y << " ";
-    }
+            void virtual print() 
+            {
+                cout << x << "; " << y << " ";
+            }
 
-     double virtual length()
-     {
-         return (sqrt(x * x + y * y));
-     }
+            double virtual length()
+            {
+                 return (sqrt(x * x + y * y));
+            }
 
-     void virtual normalize()
-     {
-         double lenght = this->length();
-         x = x / lenght ;
-         y = y / lenght;
+            void virtual normalize()
+            {
+                 double lenght = this->length();
+                 x = x / lenght ;
+                 y = y / lenght;
 
-     }
-     //ToDo чи треба додавати протилежність?
-     bool equals(TVector2D vector)
-     {
-         return x == vector.x && y == vector.y;
-     }
+            }
+            bool equals(TVector2D vector)
+            {
+                 return x == vector.x && y == vector.y;
+            }
 
-      TVector2D operator + (const TVector2D vector2)
-     {
-         return TVector2D(this->x + vector2.x, this->y + vector2.y);
-     }
-      TVector2D operator -(const TVector2D vector2)
-     {
-         return TVector2D(this->x - vector2.x, this->x - vector2.y);
-     }
-      double operator *(const TVector2D vector2)
-     {
-         return (this->x * vector2.x + this->x * vector2.y);
-     }
+            TVector2D operator + (const TVector2D vector2)
+            {
+                 return TVector2D(this->x + vector2.x, this->y + vector2.y);
+            }
+            TVector2D operator -(const TVector2D vector2)
+            {
+                 return TVector2D(this->x - vector2.x, this->x - vector2.y);
+            }
+            double operator *(const TVector2D vector2)
+            {
+                 return (this->x * vector2.x + this->x * vector2.y);
+            }
 
-};
+ };
 class TVector3D : public TVector2D
 {
-protected:
-    double z;
-public:
-    TVector3D(double x, double y, double z) :TVector2D(x, y)
-    {
+    protected:
+        double z;
 
-        this->z = z;
-    }
-    TVector3D() :TVector2D()
-    {
-        this->z = 0;
-    }
+    public:
+        TVector3D(double x, double y, double z) :TVector2D(x, y)
+        {
 
-    TVector3D(const TVector3D& vector)
-    {
-        this->x = vector.x;
-        this->y = vector.y;
-        this->z = vector.z;
-    }
+            this->z = z;
+        }
+        TVector3D() :TVector2D()
+        {
+            this->z = 0;
+        }
 
-    void input() override
-    {
-        this->TVector2D::input();
-        cout << "Please, enter z" << endl;
-        cin >> z;
-    }
+        TVector3D(const TVector3D& vector)
+        {
+            this->x = vector.x;
+            this->y = vector.y;
+            this->z = vector.z;
+        }
 
-     void print() override
-     {
-         this->TVector2D::print();
-         cout << "; " << z << endl;
-     }
+        void input() override
+        {
+            this->TVector2D::input();
+            cout << "Please, enter z" << endl;
+            cin >> z;
+        }
 
-     double length() override
-     {
-         return sqrt(this->TVector2D::length() * this->TVector2D::length() + z * z);
-     }
-     void normalize() override
-     {
-         double length = this->length();
-         this->TVector2D::normalize();
-         z = z / length;
-     }
-     bool equals(TVector3D vector)
-     {
-         return this->x == vector.x && this->y == vector.y && this->z == vector.z;
-     }
-     TVector3D operator +(const TVector3D vector2)
-     {
-         return TVector3D(this->x + vector2.x, this->y + vector2.y, this->z + vector2.z);
-     }
-     TVector3D operator -(const TVector3D vector2)
-     {
-         return  TVector3D(this->x - vector2.x, this->y - vector2.y, this->z - vector2.z);
-     }
-     double operator *(const TVector3D vector2)
-     {
-         return (this->x * vector2.x + this->y * vector2.y + this->z * vector2.z);
-     }
+        void print() override
+        {
+             this->TVector2D::print();
+             cout << "; " << z << endl;
+        }
+
+        double length() override
+        {
+             return sqrt(this->TVector2D::length() * this->TVector2D::length() + z * z);
+        }
+        void normalize() override
+        {
+             double length = this->length();
+             this->TVector2D::normalize();
+             z = z / length;
+        }
+        bool equals(TVector3D vector)
+        {
+             return this->x == vector.x && this->y == vector.y && this->z == vector.z;
+        }
+        TVector3D operator +(const TVector3D vector2)
+        {
+             return TVector3D(this->x + vector2.x, this->y + vector2.y, this->z + vector2.z);
+        }
+        TVector3D operator -(const TVector3D vector2)
+        {
+             return  TVector3D(this->x - vector2.x, this->y - vector2.y, this->z - vector2.z);
+        }
+        double operator *(const TVector3D vector2)
+        {
+             return (this->x * vector2.x + this->y * vector2.y + this->z * vector2.z);
+        }
 
 
 };
-//#include <iostream>
-//#include"TVector2D.cpp"
-//#include"TVector3D.cpp"
-//using namespace std;
+
  static void printMenu()
 {
     cout<<"\nPlease, choose action\n0. Exit\n1. Empty constuctor\n2. Constructor with parameters\n3. Copy constuctor" <<
